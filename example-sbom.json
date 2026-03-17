@@ -1,0 +1,173 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "component": {
+      "bom-ref": "pkg:npm/my-web-app@1.0.0",
+      "type": "application",
+      "name": "my-web-app",
+      "version": "1.0.0",
+      "description": "Example web application",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:npm/express@4.18.2",
+      "type": "library",
+      "name": "express",
+      "version": "4.18.2",
+      "description": "Fast, unopinionated, minimalist web framework",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Express.js Team"
+      }
+    },
+    {
+      "bom-ref": "pkg:npm/body-parser@1.20.1",
+      "type": "library",
+      "name": "body-parser",
+      "version": "1.20.1",
+      "description": "Node.js body parsing middleware",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/multer@1.4.5-lts.1",
+      "type": "library",
+      "name": "multer",
+      "version": "1.4.5-lts.1",
+      "description": "Middleware for handling multipart/form-data",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/react@18.2.0",
+      "type": "framework",
+      "name": "react",
+      "version": "18.2.0",
+      "description": "JavaScript library for building user interfaces",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "supplier": {
+        "name": "Meta Platforms, Inc."
+      }
+    },
+    {
+      "bom-ref": "pkg:npm/react-dom@18.2.0",
+      "type": "library",
+      "name": "react-dom",
+      "version": "18.2.0",
+      "description": "React package for working with the DOM",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/lodash@4.17.21",
+      "type": "library",
+      "name": "lodash",
+      "version": "4.17.21",
+      "description": "Lodash modular utilities",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:npm/axios@1.6.0",
+      "type": "library",
+      "name": "axios",
+      "version": "1.6.0",
+      "description": "Promise based HTTP client for the browser and node.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:npm/my-web-app@1.0.0",
+      "dependsOn": [
+        "pkg:npm/express@4.18.2",
+        "pkg:npm/react@18.2.0",
+        "pkg:npm/axios@1.6.0"
+      ]
+    },
+    {
+      "ref": "pkg:npm/express@4.18.2",
+      "dependsOn": [
+        "pkg:npm/body-parser@1.20.1",
+        "pkg:npm/multer@1.4.5-lts.1"
+      ]
+    },
+    {
+      "ref": "pkg:npm/react@18.2.0",
+      "dependsOn": [
+        "pkg:npm/react-dom@18.2.0",
+        "pkg:npm/lodash@4.17.21"
+      ]
+    },
+    {
+      "ref": "pkg:npm/body-parser@1.20.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/multer@1.4.5-lts.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/react-dom@18.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/lodash@4.17.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:npm/axios@1.6.0",
+      "dependsOn": []
+    }
+  ]
+}

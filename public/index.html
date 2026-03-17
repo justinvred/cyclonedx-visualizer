@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CycloneDX SBOM Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CycloneDX SBOM Visualizer</h1>
+            <p>Upload your CycloneDX SBOM file to visualize dependencies</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".json,.xml" />
+                <label for="fileInput" class="file-label">
+                    <span id="fileName">Choose SBOM File (.json or .xml)</span>
+                </label>
+            </div>
+            <button id="uploadBtn" class="btn-primary" disabled>Visualize SBOM</button>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing SBOM...</p>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+
+        <div id="results" class="results hidden">
+            <div class="stats-panel">
+                <h2>SBOM Overview</h2>
+                <div id="stats" class="stats-grid"></div>
+            </div>
+
+            <div class="visualization-panel">
+                <h2>Dependency Tree</h2>
+                <div class="controls">
+                    <button id="expandAll" class="btn-secondary">Expand All</button>
+                    <button id="collapseAll" class="btn-secondary">Collapse All</button>
+                    <input type="text" id="searchBox" placeholder="Search components..." />
+                </div>
+                <div id="dependencyTree" class="dependency-tree"></div>
+            </div>
+
+            <div class="components-panel">
+                <h2>All Components</h2>
+                <div class="table-wrapper">
+                    <table id="componentsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Version</th>
+                                <th>Type</th>
+                                <th>License</th>
+                                <th>Supplier</th>
+                            </tr>
+                        </thead>
+                        <tbody id="componentsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
