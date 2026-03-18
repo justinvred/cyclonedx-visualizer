@@ -9,11 +9,14 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 20px;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 header {
@@ -44,6 +47,40 @@ header p {
     gap: 20px;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.format-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.format-selector label {
+    font-weight: 600;
+    color: #333;
+}
+
+.format-select {
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.format-select:hover {
+    border-color: #667eea;
+}
+
+.format-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .file-input-wrapper {
@@ -124,6 +161,8 @@ header p {
     padding: 40px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .spinner {
@@ -149,12 +188,16 @@ header p {
     padding: 20px;
     color: #c33;
     margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Results */
 .results {
     display: grid;
     gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .stats-panel, .visualization-panel, .components-panel {
@@ -162,6 +205,10 @@ header p {
     border-radius: 12px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .stats-panel h2, .visualization-panel h2, .components-panel h2 {
@@ -173,8 +220,10 @@ header p {
 /* Stats Grid */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .stat-item {
@@ -202,6 +251,8 @@ header p {
     gap: 10px;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #searchBox {
@@ -218,98 +269,130 @@ header p {
     border-color: #667eea;
 }
 
-/* Dependency Tree */
-.dependency-tree {
-    max-height: 600px;
-    overflow-y: auto;
+/* Sunburst Chart */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 15px;
-    background: #fafafa;
+    overflow: hidden;
 }
 
-.tree-node {
+#sunburstChart {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-tooltip {
+    position: absolute;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.chart-tooltip.visible {
+    opacity: 1;
+}
+
+.tooltip-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.tooltip-version {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.tooltip-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.tooltip-info-item {
+    display: flex;
+    gap: 5px;
+}
+
+.tooltip-label {
+    color: #888;
+}
+
+.breadcrumb {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f7f7f7;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    min-height: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 10px;
-    margin: 2px 0;
-    background: white;
-    border-radius: 6px;
-    border-left: 3px solid #667eea;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
+    flex-wrap: wrap;
 }
 
-.tree-node:hover {
-    background: #f0f0ff;
-    transform: translateX(3px);
-}
-
-.tree-node.circular {
-    border-left-color: #f59e0b;
-    opacity: 0.7;
-}
-
-.node-toggle {
+.breadcrumb-item {
+    color: #667eea;
     cursor: pointer;
-    user-select: none;
-    transition: transform 0.2s ease;
-    font-size: 0.8rem;
-    color: #666;
+    transition: color 0.2s ease;
 }
 
-.tree-node:not(.has-children) .node-toggle {
-    opacity: 0;
-    cursor: default;
+.breadcrumb-item:hover {
+    color: #764ba2;
+    text-decoration: underline;
 }
 
-.tree-node.expanded .node-toggle {
-    transform: rotate(-90deg);
+.breadcrumb-separator {
+    color: #999;
 }
 
-.tree-node:not(.expanded) + .tree-children {
-    display: none;
+/* Chart arc styles */
+.chart-arc {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
 }
 
-.tree-children {
-    margin-left: 20px;
+.chart-arc:hover {
+    opacity: 0.8;
 }
 
-.node-icon {
-    font-size: 1.2rem;
+.chart-arc-text {
+    fill: white;
+    font-size: 12px;
+    font-weight: 500;
+    pointer-events: none;
+    text-anchor: middle;
 }
 
-.node-name {
+.chart-center-text {
+    fill: #333;
+    font-size: 14px;
     font-weight: 600;
-    color: #333;
-}
-
-.node-version {
-    color: #666;
-    font-size: 0.85rem;
-}
-
-.node-type {
-    padding: 2px 8px;
-    background: #e0e0e0;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    color: #555;
-}
-
-.node-license {
-    padding: 2px 8px;
-    background: #dcfce7;
-    color: #166534;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    margin-left: auto;
+    text-anchor: middle;
+    pointer-events: none;
 }
 
 /* Components Table */
 .table-wrapper {
     overflow-x: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #componentsTable {
@@ -349,12 +432,21 @@ header p {
 
 /* Responsive */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
     header h1 {
         font-size: 2rem;
     }
 
     .upload-section {
         flex-direction: column;
+        padding: 20px;
+    }
+
+    .format-selector {
+        width: 100%;
     }
 
     .file-input-wrapper {
@@ -372,5 +464,13 @@ header p {
 
     #searchBox {
         width: 100%;
+    }
+
+    .stats-panel, .visualization-panel, .components-panel {
+        padding: 15px;
+    }
+
+    .chart-container {
+        height: 400px;
     }
 }

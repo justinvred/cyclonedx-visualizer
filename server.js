@@ -31,6 +31,7 @@ app.post('/upload', upload.single('sbom'), (req, res) => {
   try {
     const fileContent = req.file.buffer.toString('utf-8');
     const ext = path.extname(req.file.originalname).toLowerCase();
+    const format = req.body.format || 'cyclonedx'; // Get format from request
 
     let sbomData;
     if (ext === '.json') {
@@ -43,6 +44,7 @@ app.post('/upload', upload.single('sbom'), (req, res) => {
     res.json({
       success: true,
       data: sbomData,
+      format: format,
       filename: req.file.originalname
     });
   } catch (error) {

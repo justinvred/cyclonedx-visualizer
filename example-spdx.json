@@ -1,0 +1,156 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "Example Web Application SBOM",
+  "documentNamespace": "https://example.com/sbom/my-web-app-1.0.0",
+  "creationInfo": {
+    "created": "2024-01-15T10:30:00Z",
+    "creators": [
+      "Tool: example-sbom-tool-1.0"
+    ],
+    "licenseListVersion": "3.20"
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-my-web-app",
+      "name": "my-web-app",
+      "versionInfo": "1.0.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "Copyright 2024 Example Corp",
+      "description": "Example web application",
+      "primaryPackagePurpose": "APPLICATION"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-express",
+      "name": "express",
+      "versionInfo": "4.18.2",
+      "downloadLocation": "https://registry.npmjs.org/express/-/express-4.18.2.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "Fast, unopinionated, minimalist web framework",
+      "primaryPackagePurpose": "LIBRARY",
+      "supplier": "Organization: Express.js Team"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-body-parser",
+      "name": "body-parser",
+      "versionInfo": "1.20.1",
+      "downloadLocation": "https://registry.npmjs.org/body-parser/-/body-parser-1.20.1.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "Node.js body parsing middleware",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-multer",
+      "name": "multer",
+      "versionInfo": "1.4.5-lts.1",
+      "downloadLocation": "https://registry.npmjs.org/multer/-/multer-1.4.5-lts.1.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "Middleware for handling multipart/form-data",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-react",
+      "name": "react",
+      "versionInfo": "18.2.0",
+      "downloadLocation": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "JavaScript library for building user interfaces",
+      "primaryPackagePurpose": "FRAMEWORK",
+      "supplier": "Organization: Meta Platforms, Inc."
+    },
+    {
+      "SPDXID": "SPDXRef-Package-react-dom",
+      "name": "react-dom",
+      "versionInfo": "18.2.0",
+      "downloadLocation": "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "React package for working with the DOM",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-lodash",
+      "name": "lodash",
+      "versionInfo": "4.17.21",
+      "downloadLocation": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "Lodash modular utilities",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-axios",
+      "name": "axios",
+      "versionInfo": "1.6.0",
+      "downloadLocation": "https://registry.npmjs.org/axios/-/axios-1.6.0.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "description": "Promise based HTTP client for the browser and node.js",
+      "primaryPackagePurpose": "LIBRARY"
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-my-web-app"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-my-web-app",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-express"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-my-web-app",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-react"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-my-web-app",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-axios"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-express",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-body-parser"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-express",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-multer"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-react",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-react-dom"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-react",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-lodash"
+    }
+  ]
+}
